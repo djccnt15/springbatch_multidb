@@ -1,0 +1,27 @@
+spring:
+  batch:
+    jdbc:
+      initialize-schema: always
+  application:
+    name: multidb
+  datasource:
+    batch:
+      jdbc-url: jdbc:sqlserver://localhost:1433;databaseName=batch_meta;encrypt=false;trustServerCertificate=true
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      username: sa
+      password: admin1015*
+    business:
+      jdbc-url: jdbc:sqlserver://localhost:1433;databaseName=batch_test;encrypt=false;trustServerCertificate=true
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      username: sa
+      password: admin1015*
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.SQLServerDialect
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
