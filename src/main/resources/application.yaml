@@ -6,12 +6,12 @@ spring:
     name: multidb
   datasource:
     batch:
-      jdbc-url: jdbc:sqlserver://localhost:1433;databaseName=batch_meta;encrypt=false;trustServerCertificate=true
+      url: jdbc:sqlserver://localhost:1433;databaseName=batch_meta;encrypt=false;trustServerCertificate=true
       driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
       username: sa
       password: admin1015*
     business:
-      jdbc-url: jdbc:sqlserver://localhost:1433;databaseName=batch_test;encrypt=false;trustServerCertificate=true
+      url: jdbc:sqlserver://localhost:1433;databaseName=batch_test;encrypt=false;trustServerCertificate=true
       driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
       username: sa
       password: admin1015*
