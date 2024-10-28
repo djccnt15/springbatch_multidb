@@ -104,7 +104,7 @@ public class SimpleJobConfiguration {
     public ItemWriter<TestDataDto> itemWriter() {
         return items -> {
             for (TestDataDto item : items) {
-                log.info("days between: {}", item.getDaysBetween());
+                log.info("user name: {}, days between: {}", item.getUserId(), item.getDaysBetween());
             }
         };
     }
