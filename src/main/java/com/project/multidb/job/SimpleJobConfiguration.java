@@ -27,7 +27,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 @Slf4j
-@Batch
+// @Batch
 @RequiredArgsConstructor
 public class SimpleJobConfiguration {
     
