@@ -21,6 +21,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
@@ -35,7 +36,7 @@ public class JoinedDataJobConfiguration {
     
     @Bean
     public Job job(JobRepository jobRepository, Step step) {
-        return new JobBuilder("joinedDataJob", jobRepository)
+        return new JobBuilder("joinedDataJob_%s".formatted(LocalDateTime.now().withNano(0)), jobRepository)
             .incrementer(new RunIdIncrementer())
             .start(step)
             .build();
@@ -80,7 +81,7 @@ public class JoinedDataJobConfiguration {
         var finalParsedDatetime = parsedDatetime;
         
         return it -> {
-            var daysBetween = ChronoUnit.DAYS.between(finalParsedDatetime, it.getLastUpd());
+            var daysBetween = ChronoUnit.DAYS.between(it.getLastUpd(), finalParsedDatetime);
             it.setDaysBetween(daysBetween);
             return it;
         };
