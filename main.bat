@@ -14,4 +14,4 @@ set CLASSPATH=C:\projects\springbatch_multidb\build\libs\multidb.jar
 set CONFIG_PATH=C:\projects\springbatch_multidb\src\main\resources\application.yaml
 
 :: Run the Spring Batch application
-%JAVA_PATH% -jar "%CLASSPATH%" baseDate=%BASE_DATE% -Xms%XMS% -Xmx%XMX% --spring.config.location=%CONFIG_PATH%
+%JAVA_PATH% -jar -Dfile.encoding=UTF-8 "%CLASSPATH%" baseDate=%BASE_DATE% -Xms%XMS% -Xmx%XMX% --spring.config.location=%CONFIG_PATH%
