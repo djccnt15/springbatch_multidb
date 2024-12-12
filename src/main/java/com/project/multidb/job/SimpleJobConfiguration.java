@@ -40,6 +40,13 @@ public class SimpleJobConfiguration {
     
     private static final int CHUNK_SIZE = 100;  // chunk size and fetch size must be same if working with JPA
     
+    /**
+     * change job name everytime to get job parameter from OS command.
+     * Spring Batch fetches job parameters from the Job metadata stored in its database, if a job instance with the same parameters already exists
+     * @param jobRepository injection from spring batch
+     * @param step Spring Batch step configuration
+     * @return Spring Batch Job
+     */
     @Bean
     public Job job(JobRepository jobRepository, Step step) {
         return new JobBuilder("simpleJob_%s".formatted(LocalDateTime.now().withNano(0)), jobRepository)
